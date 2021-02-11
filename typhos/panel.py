@@ -616,7 +616,7 @@ class SignalPanel(QtWidgets.QGridLayout):
                                dotted_name, device.name, ex, exc_info=True)
                 return
 
-            return self.add_signal(signal, name=attr, tooltip=component.doc)
+            return self.add_signal(signal, name=component.kwargs.get('name', attr), tooltip=component.doc)
 
         return self._add_component(device, attr, dotted_name, component)
 
