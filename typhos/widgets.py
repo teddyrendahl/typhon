@@ -179,7 +179,7 @@ class TyphosLineEdit(pydm.widgets.PyDMLineEdit):
         super().__init__(*args, **kwargs)
         self.showUnits = True
         if display_format is not None:
-            self.displayFormat = display_format
+            self.displayFormat = variety.get_display_format(display_format)
 
     @property
     def setpoint_history(self):
@@ -313,7 +313,7 @@ class TyphosLabel(pydm.widgets.PyDMLabel):
                            QtWidgets.QSizePolicy.Maximum)
         self.showUnits = True
         if display_format is not None:
-            self.displayFormat = display_format
+            self.displayFormat = variety.get_display_format(display_format)
 
     def unit_changed(self, new_unit):
         """

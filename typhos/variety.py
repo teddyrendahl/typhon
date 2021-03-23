@@ -251,6 +251,8 @@ def get_enum_strings(enum_strings, enum_dict):
 
 def get_display_format(value):
     """Get the display format enum value from the variety metadata value."""
-    if value is not None:
+    if isinstance(value, DisplayFormat):
+        return value
+    if isinstance(value, str):
         return getattr(DisplayFormat, value.capitalize(),
                        DisplayFormat.Default)
